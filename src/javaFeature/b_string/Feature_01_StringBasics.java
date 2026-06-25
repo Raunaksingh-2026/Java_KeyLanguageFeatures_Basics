@@ -2,6 +2,7 @@ package javaFeature.b_string;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -106,21 +107,25 @@ public class Feature_01_StringBasics {
 
         System.out.println("a + b     : " + (a + b)); // adding value of [ a ] to value of [ b ] -> 10 + 20 = 30
         System.out.println("'a' + 'b' : " + ('a' + 'b')); // adding ASCII value of [ a ] and [ b ] -> 97 + 98 = 195
-        System.out.println("'a' + b : " + ('a' + b)); // adding ASCII value of [ a ] and value of[ b ] -> 97 + 20 = 117
-        System.out.println("(char)('a' + b)" + (char)('a' + b)); // adding ASCII value of [ a ] and value of[ b ] -> converted to CHARACTER -> 97 + 98 = 195 -> [ u ]
+        System.out.println("'a' + b   : " + ('a' + b)); // adding ASCII value of [ a ] and value of[ b ] -> 97 + 20 = 117
+        System.out.println("(char)('a' + b) : " + (char)('a' + b)); // adding ASCII value of [ a ] and value of[ b ] -> converted to CHARACTER -> 97 + 98 = 195 -> [ u ]
         System.out.println("\"a\" + \"b\" : " + ("a" + "b")); // CONCAT String[ a ] to String[ b ] -> a + b = ab
-        System.out.println("\"a\" + b : "+ ("a" + b)); // CONCAT String[ a ] to value of[ b ] -> internally value of[ b ] in converter to Integer WRAPPER class then convert toString() then concatenate ->  a + 10 = a10
-
-        /************ Concatenation operation on Object and String *************/
-//        List<String> fruitsName = new ArrayList<>(Collections.singleton("Apple"));
-        List<String> fruitsName = new ArrayList<>(List.of("Mango", "Banana", "Apple"));
-        System.out.println("\n+++++ Object Concatenation +++++");
-        System.out.println("Fruits : " + fruitsName); /// CONCATENATE String[ Fruits ] to OBJECT -> internally Object is converted into String -> Fruits :  + [Mango, Banana, Apple] = fruits : [Mango, Banana, Apple]
-///        we cannot concatenate two object without using String in between
-//        System.out.println(fruitsName + fruitsName);/// OBJECT + OBJECT -> INVALID
-        System.out.println(fruitsName + " -> " + fruitsName);/// OBJECT + STRING + OBJECT -> VALID
+        System.out.println("\"a\" + b   : "+ ("a" + b)); // CONCAT String[ a ] to value of[ b ] -> internally value of[ b ] in converter to Integer WRAPPER class then convert toString() then concatenate ->  a + 20 = a20
 
         /************ String to CharArrays *************/
-        System.out.println(Arrays.toString(city.toCharArray()));/// String -> toCharArray() -> char[] -> Arrays.toString() -> Readable Output
+        System.out.println(Arrays.toString(city.toCharArray())); /// String -> toCharArray() -> char[] -> Arrays.toString() -> Readable Output
+
+        /************ Concatenation operation on Object and String *************/
+        List<String> fruitsName1 = new ArrayList<>(Collections.singleton("Apple"));
+        List<String> fruitsName2 = new ArrayList<>(List.of("Mango", "Banana", "Apple"));
+        fruitsName1.add("Guava");
+        System.out.println("\n+++++ Object Concatenation +++++");
+
+        System.out.println("Fruits1 : " + fruitsName1);
+        System.out.println("Fruits2 : " + fruitsName2); /// CONCATENATE String[ Fruits2 ] to OBJECT -> internally Object is converted into String -> Fruits :  + [Mango, Banana, Apple] = fruits : [Mango, Banana, Apple]
+
+///        we cannot concatenate two object without using String in between
+//        System.out.println(fruitsName1 + fruitsName2); /// OBJECT + OBJECT -> INVALID
+        System.out.println(fruitsName1 + " -> " + fruitsName2); /// OBJECT + STRING + OBJECT -> VALID
     }
 }
